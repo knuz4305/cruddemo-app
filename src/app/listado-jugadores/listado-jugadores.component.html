@@ -1,0 +1,41 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Jugadores</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Jugadores</h5>
+
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" [routerLink]="['/creaJugador']">Crear Jugador</button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Primer Nombre</th>
+          <th>Segundo Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Dorsal</th>
+          <th>Posición</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let jugador of jugadores">
+          <td>{{ jugador.id }}</td>
+          <td>{{ jugador.primerNombre }}</td>
+          <td>{{ jugador.segundoNombre }}</td>
+          <td>{{ jugador.primerApellido }}</td>
+          <td>{{ jugador.segundoApellido }}</td>
+          <td>{{ jugador.fechaNacimiento }}</td>
+          <td>{{ jugador.dorsal }}</td>
+          <td>{{ jugador.posicion }}</td>
+          <td><button type="button" name="editar" [routerLink]="[ '/editaJugador', jugador.dorsal ]" class="btn btn-primary">Editar</button></td>
+          <td><button type="button" name="eliminar" (click)='eliminar(jugador)' class="btn btn-danger">Eliminar</button> </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
